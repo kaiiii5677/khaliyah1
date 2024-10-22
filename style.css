@@ -1,0 +1,893 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+:root {
+    --primary-color: #d4a586; /* Light brown/cream */
+    --secondary-color: #473134; /* Dark brown */
+    --white: #fff; /* White */
+    --cream: #fffaf0; /* Light cream */
+    --green: #98c35d; /* Green */
+    --dark: #333; /* Dark gray */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+body {
+  background-color: var(--cream); /* Use cream background for the body */
+  color: var(--dark); /* Default text color */
+}
+
+.title
+{
+   font-size: 200%;
+   
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color: var(--white); /* Background for the form container */
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.forms-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.signin-signup {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 75%;
+  width: 50%;
+  transition: 1s 0.7s ease-in-out;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+form.sign-up-form {
+  opacity: 0;
+  z-index: 1;
+}
+
+form.sign-in-form {
+  z-index: 2;
+}
+
+.title {
+  font-size: 40%;
+  color: var(--secondary-color); /* Dark brown for titles */
+  margin-bottom: 10px;
+}
+
+.input-field {
+  max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: var(--dark); /* Icon color */
+  transition: 0.5s;
+  font-size: 1.1rem;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--dark); /* Text color inside input fields */
+}
+
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+
+.btn {
+  width: 300px;
+  background-color: var(--green); /* Green for buttons */
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: var(--white); /* White text */
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-color: var(--primary-color); /* Light brown on hover */
+}
+
+.panels-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(-45deg, var(--green), var(--primary-color));
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  z-index: 6;
+}
+
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 6;
+}
+
+.left-panel {
+  pointer-events: all;
+  padding: 3rem 17% 2rem 12%;
+}
+
+.right-panel {
+  pointer-events: none;
+  padding: 3rem 12% 2rem 17%;
+}
+
+.panel .content {
+  color: var(--white); /* White text in panels */
+  transition: transform 0.9s ease-in-out;
+  transition-delay: 0.3s;
+}
+
+.panel h3 {
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+  color: var(--white); /* White titles */
+}
+
+.panel p {
+  font-size: 10rem;
+  padding: 0.7rem 0;
+  color: var(--white); /* White text */
+}
+
+.btn.transparent {
+  margin: 0;
+  background: none;
+  border: 2px solid var(--secondary-color); /* White border for transparent buttons */
+  width: 130px;
+  height: 41px;
+  font-weight: 600;
+  font-size:90px;
+}
+
+.right-panel .content {
+  transform: translateX(800px);
+}
+
+/* ANIMATION */
+
+.container.sign-up-mode:before {
+  transform: translate(100%, -50%);
+  right: 52%;
+}
+
+
+.container.sign-up-mode .left-panel .content {
+  transform: translateX(-800px);
+}
+
+.container.sign-up-mode .signin-signup {
+  left: 50%;
+}
+
+.container.sign-up-mode form.sign-up-form {
+  opacity: 1;
+  z-index: 2;
+}
+
+.container.sign-up-mode form.sign-in-form {
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content {
+  transform: translateX(0%);
+}
+
+.container.sign-up-mode .left-panel {
+  pointer-events: none;
+}
+
+.container.sign-up-mode .right-panel {
+  pointer-events: all;
+}
+
+@media (max-width: 870px) {
+  .container {
+    min-height: 800px;
+    height: 100vh;
+  }
+
+  .signin-signup {
+    width: 100%;
+    top: 95%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
+  }
+
+  .signin-signup,
+  .container.sign-up-mode .signin-signup {
+    left: 50%;
+  }
+
+  .panels-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+
+  .panel {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5rem 8%;
+    grid-column: 1 / 2;
+  }
+
+  .right-panel {
+    grid-row: 3 / 4;
+  }
+
+  .left-panel {
+    grid-row: 1 / 2;
+  }
+
+  .panel .content {
+    padding-right: 15%;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.8s;
+  }
+
+  .panel h3 {
+    font-size: 3.4rem;
+  }
+
+  .panel p {
+    font-size: 3.4rem;
+    padding: 0.5rem 0;
+  }
+
+  .btn.transparent {
+    width: 110px;
+    height: 35px;
+    font-size: 0.7rem;
+  }
+
+  .container:before {
+    width: 1500px;
+    height: 1500px;
+    transform: translateX(-50%);
+    left: 30%;
+    bottom: 68%;
+    right: initial;
+    top: initial;
+    transition: 2s ease-in-out;
+  }
+
+  .container.sign-up-mode:before {
+    transform: translate(-50%, 100%);
+    bottom: 32%;
+    right: initial;
+    left: 30%;
+    top: initial;
+  }
+
+
+  .container.sign-up-mode .right-panel .image,
+  .container.sign-up-mode .right-panel .content {
+    transform: translateX(400px);
+  }
+
+  .container.sign-up-mode .left-panel .image,
+  .container.sign-up-mode .left-panel .content {
+    transform: translateX(-400px);
+  }
+
+  
+}
+
+@media (max-width: 570px) {
+  form {
+    padding: 0 1.5rem;
+  }
+
+  .container:before {
+    bottom: 72%;
+    left: 50%;
+  }
+
+  .container.sign-up-mode:before {
+    bottom: 28%;
+    left: 50%;
+  }
+}
+
+/* Home page */
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+}
+
+/* Header Section */
+#header {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header .logo {
+    width: 150px;
+}
+
+#navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+#navbar li {
+    margin: 0 15px;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 70px;
+    transition: color 0.3s ease;
+}
+
+#navbar a:hover, #navbar .active {
+    color: var(--cream);
+}
+
+.fa-cart-shopping {
+    font-size: 20px;
+}
+
+/* Hero Section */
+#hero {
+    background: url('./images/coconutwelcomepage.jpg') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#hero h2 {
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#hero button {
+    background-color: var(--secondary-color);
+    color: var(--cream);
+    border: none;
+    padding: 15px 30px;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#hero button:hover {
+    background-color: var(--cream);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #header {
+        flex-direction: column;
+    }
+
+    #navbar {
+        flex-direction: column;
+    }
+
+    #hero h1 {
+        font-size: 60px;
+    }
+
+    #hero h2 {
+        font-size: 30px;
+    }
+
+    #hero button {
+        font-size: 25px;
+        padding: 10px 20px;
+    }
+}
+
+/* Products Page */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 40px; /* Added 'px' for padding */
+    box-sizing: border-box;
+}
+
+#header {
+    background-color: var(--secondary-color);
+    padding: 40px 0;
+}
+
+#header .logo {
+    width: 300px; /* Adjust to your desired size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+#navbar img {
+    height: auto;  /* Maintain aspect ratio */
+    max-height: 100px;  /* Control maximum height */
+    padding: 5px;  /* Add some spacing */
+    vertical-align: middle;  /* Align with other navbar elements */
+}  
+
+#navbar li {
+    display: inline;
+    margin-right: 25px;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 70px; /* Adjusted font-size to be more practical */
+    padding: 10px 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#navbar a:hover {
+    background-color: var(--cream);
+}
+
+#products-page {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 30px; /* Adjusted font-size to be more practical */
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20x;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-info {
+    margin-top: 10px;
+}
+
+.product-info h3 {
+    font-size: 20px; /* Adjusted font-size to be more practical */
+    margin-bottom: 5px;
+}
+
+.product-price {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 18px; /* Adjusted font-size to be more practical */
+}
+
+.btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+
+/* Invoice */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cream); /* Light cream background */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color); /* Primary brand color */
+}
+
+a:hover {
+    color: var(--secondary-color); /* Darker shade for hover effect */
+}
+
+/* Header Styles */
+#header {
+    background: var(--primary-color); /* Your brand color */
+    color: var(--white);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header .logo {
+    width: 150px;
+}
+
+#navbar {
+    list-style: none;
+    padding: 0;
+}
+
+#navbar li {
+    display: inline;
+    margin-right: 15px;
+}
+
+/* Invoice Container Styles */
+#invoice-container {
+    max-width: 1200px; /* Maximum width */
+    max-block-size: 1000px;
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Padding inside the container */
+    background: var(--white); /* White background for invoice container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+    
+}
+
+/* Invoice Header Styles */
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--primary-color); /* Border color */
+    padding-bottom: 20px;
+}
+
+.company-info {
+    width: 60%; /* Adjust this percentage as needed */
+}
+
+.invoice-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.invoice-details {
+    width: 40%; /* Adjust this percentage as needed */
+    text-align: right;
+}
+
+/* Invoice Items Table Styles */
+.invoice-items {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%; /* Full width of the container */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+table th, table td {
+    border: 1px solid #dddddd; /* Light gray borders */
+    padding: 10px; /* Add padding */
+    text-align: left;
+}
+
+table th {
+    background-color: var(--primary-color); /* Header background */
+    color: var(--white); /* Header text color */
+}
+
+/* Invoice Summary Styles */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 1.2em; /* Larger font for total */
+}
+
+/* Invoice Actions Styles */
+.invoice-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.btn {
+    background: var(--primary-color); /* Button background */
+    color: var(--white); /* Button text color */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: var(--secondary-color); /* Darker button on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .invoice-header {
+        flex-direction: column; /* Stack items on smaller screens */
+        align-items: flex-start; /* Align to the start */
+    }
+
+    .company-info, .invoice-details {
+        width: 100%; /* Full width on small screens */
+        text-align: left; /* Left align for better readability */
+    }
+
+    table th, table td {
+        font-size: 14px; /* Smaller font size for mobile */
+        padding: 5px; /* Less padding for mobile */
+    }
+
+    .btn {
+        width: 100%; /* Full-width buttons on mobile */
+        margin-top: 10px; /* Spacing between buttons */
+    }
+}
+.invoice-items table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.invoice-items th,
+.invoice-items td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.invoice-items th {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.summary-details {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 1.2em;
+    border-top: 2px solid var(--secondary-color);
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.invoice-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+@media print {
+    #header,
+    .invoice-actions {
+        display: none;
+    }
+    
+    .invoice-container {
+        margin: 0;
+        padding: 20px;
+    }
+}
+/* Prevent Overflow */
+.invoice-items {
+    overflow-x: auto; /* Allow horizontal scroll if necessary */
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: var(--white); /* Ensure white background for print */
+        color: var(--dark); /* Use dark text for better contrast */
+    }
+
+    #invoice-container {
+        box-shadow: none; /* Remove shadow for print */
+        margin: 0; /* Use full width */
+        padding: 0; /* Remove padding */
+    }
+
+    /* Hide buttons for print */
+    .invoice-actions {
+        display: none; /* Hide action buttons */
+    }
+
+    /* Adjust table for print */
+    table {
+        border: 1px solid black; /* Ensure borders are visible */
+    }
+
+    table th, table td {
+        border: 1px solid black; /* Solid borders for print */
+    }
+}
+
+/* Cart*/
+.cart-display {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.cart-item, .invoice-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+
+.About {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.About p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.About a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.About a:hover {
+    text-decoration: underline;
+}
+
+.About
+{
+    size: 100%;
+}

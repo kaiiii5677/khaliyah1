@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/release/v5.10.0/all.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Invoice</title>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="./images/logo-no-background.png" class="logo" alt="Logo" /></a>
+        <ul id="navbar">
+            <li><a href="home_page.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a class="active" href="invoice.html">Invoice</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </section>
+
+    <section id="invoice-container">
+        <div class="invoice-header">
+            <div class="company-info">
+                <img src="./images/logo-no-background.png" alt="Logo" class="invoice-logo">
+                <h2>Coconut Catering</h2>
+                <p>123 Main Street, Kingston, Jamaica</p>
+                <p>Phone: (876) 123-4567</p>
+                <p>Email: khaliyahdavis475@gmail.com</p>
+            </div>
+            <div class="invoice-details">
+                <h1>INVOICE</h1>
+                <p>Invoice #: <span id="invoice-number">12345</span></p>
+                <p>Date: <span id="invoice-date">2024-10-21</span></p>
+            </div>
+        </div>
+
+        <div class="invoice-items">
+            <table id="invoice-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="invoice-items-body">
+                    <!-- Items will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="invoice-summary">
+            <div class="summary-details">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>GCT (15%):</span>
+                    <span id="gct">$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        // Call this function when the invoice page loads
+        loadCartForInvoice();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadInvoice);
+    </script>
+
+    <script src="type.js"></script>
+</body>
+</html>
